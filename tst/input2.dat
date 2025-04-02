@@ -1,0 +1,13 @@
+modeF					! Prefix
+complt				! Suffix
+1,1						! A and B for JOINT FORMULATION PSI=A*THETA + B*VEL
+10,6					! Number of POD modes to compute and to write
+2							! Number of sets
+10						! Number of snapshots per set (starting from 1)
+2							! Skip every n snapshots 
+"CURRENT_DIR/" ! Dummy to replace with path to snapshots (one per set)
+1
+10
+"CURRENT_DIR/" ! Dummy to replace with path to snapshots (one per set)
+8
+18

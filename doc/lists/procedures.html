@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="POD using Modern Fortran">
+    
+    <meta name="author" content="Andres Castillo" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>
+All Procedures &ndash; Fortran Program
+</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+               
+        
+            <li><a href="../lists/programs.html">Programs</a></li>
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Procedures</h1>
+			 <table class="table table-striped">
+			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
+			 <tbody>
+			 
+			   <tr><td><a href='../proc/boundary_conditions.html'>BOUNDARY_CONDITIONS</a></td><td><a href='../module/input.html'>INPUT</a></td><td>Subroutine</td><td><p>Updates the boundary conditions for the RBNT configuration</p></td></tr>
+			 
+			   <tr><td><a href='../proc/boundary_conditions_ghost.html'>BOUNDARY_CONDITIONS_GHOST</a></td><td><a href='../module/input.html'>INPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/boundary_conditions_interpol.html'>BOUNDARY_CONDITIONS_INTERPOL</a></td><td><a href='../module/input.html'>INPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/boundary_conditions_rbst.html'>BOUNDARY_CONDITIONS_RBST</a></td><td><a href='../module/input.html'>INPUT</a></td><td>Subroutine</td><td><p>Updates the boundary conditions for the RBST configuration</p></td></tr>
+			 
+			   <tr><td><a href='../proc/deofcovcor.html'>DEOFCOVCOR</a></td><td><a href='../module/pierce.html'>PIERCE</a></td><td>Subroutine</td><td><p>Form the covariance or correlation matrix, put it into <script type="math/tex"> S </script>.  Note that <script type="math/tex"> S </script> is
+ always symmetric -- the correlation between <script type="math/tex"> X </script> and <script type="math/tex"> Y </script> is the same as between <script type="math/tex"> Y </script> and
+ <script type="math/tex"> X </script> -- so use packed storage for <script type="math/tex"> S </script>. The packed storage scheme we use is the same
+ as LAPACK uses so we can pass 's' directly to the solver routine: the matrix is
+ lower triangular, and <code>S(i,j) = spacked(i+(j-1)*(1*n-j)/2)</code>.</p><a href="../proc/deofcovcor.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+			 
+			   <tr><td><a href='../proc/deofpcs.html'>DEOFPCS</a></td><td><a href='../module/pierce.html'>PIERCE</a></td><td>Subroutine</td><td><p>Compute the tentative principal components; they are 'tentative' because they
+ might be the PCs of the switched data.  Put them into 'tentpcs', which is of
+ size (nt,nmodes) if we are doing regular EOFs and (nx,nmodes) if we are doing
+ switched EOFs.  These PCs come out in order corresponding to the order of
+ 'evecs', which is in ASCENDING order.</p><a href="../proc/deofpcs.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+			 
+			   <tr><td><a href='../proc/gradient.html'>GRADIENT</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/input_matrix.html'>INPUT_MATRIX</a></td><td><a href='../module/input.html'>INPUT</a></td><td>Subroutine</td><td><p>Reads a gnuplot-compatible binary matrix file</p></td></tr>
+			 
+			   <tr><td><a href='../proc/input_matrix_vtk.html'>INPUT_MATRIX_VTK</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/interpol.html'>INTERPOL</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/lint.html'>LINT</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/lorenz_state.html'>LORENZ_STATE</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/output_matrix.html'>OUTPUT_MATRIX</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/solve_eigenvalues.html'>SOLVE_EIGENVALUES</a></td><td><a href='../module/pierce.html'>PIERCE</a></td><td>Subroutine</td><td><p>Now call the LAPACK solver to get the eigenvalues and eigenvectors.  The
+ eigenvalues express the amount of variance explained by the various modes, so
+ choose to return those 'nmodes' modes which explain the most variance.</p><a href="../proc/solve_eigenvalues.html" class="pull-right"><emph>Read more&hellip;</emph></a></td></tr>
+			 
+			   <tr><td><a href='../proc/streamfunction.html'>STREAMFUNCTION</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/writeppm2matrix.html'>WRITEPPM2MATRIX</a></td><td><a href='../module/output.html'>OUTPUT</a></td><td>Subroutine</td><td></td></tr>
+			 
+			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: call~~graph~~CallGraph Pages: 1 -->
+<svg id="callgraphCallGraph" width="513pt" height="620pt"
+ viewBox="0.00 0.00 513.00 620.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="call~~graph~~CallGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 616)">
+<title>call~~graph~~CallGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-616 509,-616 509,4 -4,4"/>
+<!-- proc~lint -->
+<g id="call~~graph~~CallGraph_node1" class="node">
+<title>proc~lint</title>
+<g id="a_call~~graph~~CallGraph_node1"><a xlink:href=".././proc/lint.html" xlink:title="LINT">
+<polygon fill="#d9534f" stroke="#d9534f" points="115.5,-24 61.5,-24 61.5,0 115.5,0 115.5,-24"/>
+<text text-anchor="middle" x="88.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">LINT</text>
+</a>
+</g>
+</g>
+<!-- proc~gradient -->
+<g id="call~~graph~~CallGraph_node2" class="node">
+<title>proc~gradient</title>
+<g id="a_call~~graph~~CallGraph_node2"><a xlink:href=".././proc/gradient.html" xlink:title="GRADIENT">
+<polygon fill="#d9534f" stroke="#d9534f" points="122,-66 55,-66 55,-42 122,-42 122,-66"/>
+<text text-anchor="middle" x="88.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">GRADIENT</text>
+</a>
+</g>
+</g>
+<!-- proc~boundary_conditions -->
+<g id="call~~graph~~CallGraph_node3" class="node">
+<title>proc~boundary_conditions</title>
+<g id="a_call~~graph~~CallGraph_node3"><a xlink:href=".././proc/boundary_conditions.html" xlink:title="BOUNDARY_CONDITIONS">
+<polygon fill="#d9534f" stroke="#d9534f" points="160,-108 17,-108 17,-84 160,-84 160,-108"/>
+<text text-anchor="middle" x="88.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">BOUNDARY_CONDITIONS</text>
+</a>
+</g>
+</g>
+<!-- proc~boundary_conditions_interpol -->
+<g id="call~~graph~~CallGraph_node4" class="node">
+<title>proc~boundary_conditions_interpol</title>
+<g id="a_call~~graph~~CallGraph_node4"><a xlink:href=".././proc/boundary_conditions_interpol.html" xlink:title="BOUNDARY_CONDITIONS_INTERPOL">
+<polygon fill="#d9534f" stroke="#d9534f" points="415,-150 213,-150 213,-126 415,-126 415,-150"/>
+<text text-anchor="middle" x="314" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">BOUNDARY_CONDITIONS_INTERPOL</text>
+</a>
+</g>
+</g>
+<!-- proc~boundary_conditions_ghost -->
+<g id="call~~graph~~CallGraph_node5" class="node">
+<title>proc~boundary_conditions_ghost</title>
+<g id="a_call~~graph~~CallGraph_node5"><a xlink:href=".././proc/boundary_conditions_ghost.html" xlink:title="BOUNDARY_CONDITIONS_GHOST">
+<polygon fill="#d9534f" stroke="#d9534f" points="407.5,-570 220.5,-570 220.5,-546 407.5,-546 407.5,-570"/>
+<text text-anchor="middle" x="314" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">BOUNDARY_CONDITIONS_GHOST</text>
+</a>
+</g>
+</g>
+<!-- proc~boundary_conditions_rbst -->
+<g id="call~~graph~~CallGraph_node6" class="node">
+<title>proc~boundary_conditions_rbst</title>
+<g id="a_call~~graph~~CallGraph_node6"><a xlink:href=".././proc/boundary_conditions_rbst.html" xlink:title="BOUNDARY_CONDITIONS_RBST">
+<polygon fill="#d9534f" stroke="#d9534f" points="177,-570 0,-570 0,-546 177,-546 177,-570"/>
+<text text-anchor="middle" x="88.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">BOUNDARY_CONDITIONS_RBST</text>
+</a>
+</g>
+</g>
+<!-- proc~lorenz_state -->
+<g id="call~~graph~~CallGraph_node7" class="node">
+<title>proc~lorenz_state</title>
+<g id="a_call~~graph~~CallGraph_node7"><a xlink:href=".././proc/lorenz_state.html" xlink:title="LORENZ_STATE">
+<polygon fill="#d9534f" stroke="#d9534f" points="361.5,-528 266.5,-528 266.5,-504 361.5,-504 361.5,-528"/>
+<text text-anchor="middle" x="314" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">LORENZ_STATE</text>
+</a>
+</g>
+</g>
+<!-- float -->
+<g id="call~~graph~~CallGraph_node20" class="node">
+<title>float</title>
+<polygon fill="#777777" stroke="#777777" points="505,-444 451,-444 451,-420 505,-420 505,-444"/>
+<text text-anchor="middle" x="478" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">float</text>
+</g>
+<!-- proc~lorenz_state&#45;&gt;float -->
+<g id="call~~graph~~CallGraph_edge1" class="edge">
+<title>proc~lorenz_state&#45;&gt;float</title>
+<path fill="none" stroke="#000000" d="M361.7139,-511.8566C379.2489,-508.8778 398.7689,-503.7662 415,-495 434.2728,-484.591 451.5009,-466.4205 463.0491,-452.2603"/>
+<polygon fill="#000000" stroke="#000000" points="466.0573,-454.0961 469.4731,-444.067 460.5486,-449.777 466.0573,-454.0961"/>
+</g>
+<!-- proc~streamfunction -->
+<g id="call~~graph~~CallGraph_node8" class="node">
+<title>proc~streamfunction</title>
+<g id="a_call~~graph~~CallGraph_node8"><a xlink:href=".././proc/streamfunction.html" xlink:title="STREAMFUNCTION">
+<polygon fill="#d9534f" stroke="#d9534f" points="369.5,-318 258.5,-318 258.5,-294 369.5,-294 369.5,-318"/>
+<text text-anchor="middle" x="314" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">STREAMFUNCTION</text>
+</a>
+</g>
+</g>
+<!-- proc~streamfunction&#45;&gt;float -->
+<g id="call~~graph~~CallGraph_edge2" class="edge">
+<title>proc~streamfunction&#45;&gt;float</title>
+<path fill="none" stroke="#000000" d="M369.7522,-309.2628C385.4754,-312.2979 401.8597,-317.6648 415,-327 443.8343,-347.4846 461.7995,-385.6938 470.8442,-409.9361"/>
+<polygon fill="#000000" stroke="#000000" points="467.6532,-411.4114 474.2799,-419.678 474.2547,-409.0832 467.6532,-411.4114"/>
+</g>
+<!-- proc~interpol -->
+<g id="call~~graph~~CallGraph_node9" class="node">
+<title>proc~interpol</title>
+<g id="a_call~~graph~~CallGraph_node9"><a xlink:href=".././proc/interpol.html" xlink:title="INTERPOL">
+<polygon fill="#d9534f" stroke="#d9534f" points="121,-150 56,-150 56,-126 121,-126 121,-150"/>
+<text text-anchor="middle" x="88.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">INTERPOL</text>
+</a>
+</g>
+</g>
+<!-- proc~interpol&#45;&gt;proc~boundary_conditions_interpol -->
+<g id="call~~graph~~CallGraph_edge3" class="edge">
+<title>proc~interpol&#45;&gt;proc~boundary_conditions_interpol</title>
+<path fill="none" stroke="#000000" d="M121.2896,-138C143.0194,-138 172.9127,-138 202.6738,-138"/>
+<polygon fill="#000000" stroke="#000000" points="202.7496,-141.5001 212.7496,-138 202.7496,-134.5001 202.7496,-141.5001"/>
+</g>
+<!-- proc~input_matrix_vtk -->
+<g id="call~~graph~~CallGraph_node10" class="node">
+<title>proc~input_matrix_vtk</title>
+<g id="a_call~~graph~~CallGraph_node10"><a xlink:href=".././proc/input_matrix_vtk.html" xlink:title="INPUT_MATRIX_VTK">
+<polygon fill="#d9534f" stroke="#d9534f" points="146.5,-612 30.5,-612 30.5,-588 146.5,-588 146.5,-612"/>
+<text text-anchor="middle" x="88.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">INPUT_MATRIX_VTK</text>
+</a>
+</g>
+</g>
+<!-- proc~writeppm2matrix -->
+<g id="call~~graph~~CallGraph_node11" class="node">
+<title>proc~writeppm2matrix</title>
+<g id="a_call~~graph~~CallGraph_node11"><a xlink:href=".././proc/writeppm2matrix.html" xlink:title="WRITEPPM2MATRIX">
+<polygon fill="#d9534f" stroke="#d9534f" points="371.5,-402 256.5,-402 256.5,-378 371.5,-378 371.5,-402"/>
+<text text-anchor="middle" x="314" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">WRITEPPM2MATRIX</text>
+</a>
+</g>
+</g>
+<!-- proc~deofpcs -->
+<g id="call~~graph~~CallGraph_node12" class="node">
+<title>proc~deofpcs</title>
+<g id="a_call~~graph~~CallGraph_node12"><a xlink:href=".././proc/deofpcs.html" xlink:title="DEOFPCS">
+<polygon fill="#d9534f" stroke="#d9534f" points="345.5,-360 282.5,-360 282.5,-336 345.5,-336 345.5,-360"/>
+<text text-anchor="middle" x="314" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">DEOFPCS</text>
+</a>
+</g>
+</g>
+<!-- proc~solve_eigenvalues -->
+<g id="call~~graph~~CallGraph_node13" class="node">
+<title>proc~solve_eigenvalues</title>
+<g id="a_call~~graph~~CallGraph_node13"><a xlink:href=".././proc/solve_eigenvalues.html" xlink:title="SOLVE_EIGENVALUES">
+<polygon fill="#d9534f" stroke="#d9534f" points="377,-192 251,-192 251,-168 377,-168 377,-192"/>
+<text text-anchor="middle" x="314" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">SOLVE_EIGENVALUES</text>
+</a>
+</g>
+</g>
+<!-- dspevx -->
+<g id="call~~graph~~CallGraph_node21" class="node">
+<title>dspevx</title>
+<polygon fill="#777777" stroke="#777777" points="505,-192 451,-192 451,-168 505,-168 505,-192"/>
+<text text-anchor="middle" x="478" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dspevx</text>
+</g>
+<!-- proc~solve_eigenvalues&#45;&gt;dspevx -->
+<g id="call~~graph~~CallGraph_edge4" class="edge">
+<title>proc~solve_eigenvalues&#45;&gt;dspevx</title>
+<path fill="none" stroke="#000000" d="M377.4067,-180C398.7541,-180 421.8762,-180 440.5635,-180"/>
+<polygon fill="#000000" stroke="#000000" points="440.7275,-183.5001 450.7274,-180 440.7274,-176.5001 440.7275,-183.5001"/>
+</g>
+<!-- proc~output_matrix -->
+<g id="call~~graph~~CallGraph_node14" class="node">
+<title>proc~output_matrix</title>
+<g id="a_call~~graph~~CallGraph_node14"><a xlink:href=".././proc/output_matrix.html" xlink:title="OUTPUT_MATRIX">
+<polygon fill="#d9534f" stroke="#d9534f" points="365,-444 263,-444 263,-420 365,-420 365,-444"/>
+<text text-anchor="middle" x="314" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">OUTPUT_MATRIX</text>
+</a>
+</g>
+</g>
+<!-- proc~output_matrix&#45;&gt;float -->
+<g id="call~~graph~~CallGraph_edge5" class="edge">
+<title>proc~output_matrix&#45;&gt;float</title>
+<path fill="none" stroke="#000000" d="M365.4407,-432C389.7689,-432 418.2851,-432 440.5277,-432"/>
+<polygon fill="#000000" stroke="#000000" points="440.5819,-435.5001 450.5818,-432 440.5818,-428.5001 440.5819,-435.5001"/>
+</g>
+<!-- proc~input_matrix -->
+<g id="call~~graph~~CallGraph_node15" class="node">
+<title>proc~input_matrix</title>
+<g id="a_call~~graph~~CallGraph_node15"><a xlink:href=".././proc/input_matrix.html" xlink:title="INPUT_MATRIX">
+<polygon fill="#d9534f" stroke="#d9534f" points="359,-276 269,-276 269,-252 359,-252 359,-276"/>
+<text text-anchor="middle" x="314" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">INPUT_MATRIX</text>
+</a>
+</g>
+</g>
+<!-- proc~deofcovcor -->
+<g id="call~~graph~~CallGraph_node16" class="node">
+<title>proc~deofcovcor</title>
+<g id="a_call~~graph~~CallGraph_node16"><a xlink:href=".././proc/deofcovcor.html" xlink:title="DEOFCOVCOR">
+<polygon fill="#d9534f" stroke="#d9534f" points="358,-234 270,-234 270,-210 358,-210 358,-234"/>
+<text text-anchor="middle" x="314" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">DEOFCOVCOR</text>
+</a>
+</g>
+</g>
+<!-- program~extract_pod_sirovich -->
+<g id="call~~graph~~CallGraph_node17" class="node">
+<title>program~extract_pod_sirovich</title>
+<g id="a_call~~graph~~CallGraph_node17"><a xlink:href=".././program/extract_pod_sirovich.html" xlink:title="EXTRACT_POD_SIROVICH">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="161.5,-381 15.5,-381 15.5,-357 161.5,-357 161.5,-381"/>
+<text text-anchor="middle" x="88.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">EXTRACT_POD_SIROVICH</text>
+</a>
+</g>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~boundary_conditions_ghost -->
+<g id="call~~graph~~CallGraph_edge9" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~boundary_conditions_ghost</title>
+<path fill="none" stroke="#000000" d="M96.6553,-381.0036C121.6944,-417.7116 196.753,-526.6087 213,-537 215.6675,-538.7061 218.4482,-540.2766 221.3139,-541.7223"/>
+<polygon fill="#000000" stroke="#000000" points="220.1622,-545.0412 230.7199,-545.9272 223.019,-538.6507 220.1622,-545.0412"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~lorenz_state -->
+<g id="call~~graph~~CallGraph_edge12" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~lorenz_state</title>
+<path fill="none" stroke="#000000" d="M96.8104,-381.3801C114.7435,-407.0421 159.7818,-466.0515 213,-495 226.1664,-502.162 241.5179,-506.8856 256.219,-509.9996"/>
+<polygon fill="#000000" stroke="#000000" points="255.78,-513.4788 266.2579,-511.9086 257.0878,-506.602 255.78,-513.4788"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~streamfunction -->
+<g id="call~~graph~~CallGraph_edge13" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~streamfunction</title>
+<path fill="none" stroke="#000000" d="M120.6767,-356.9545C145.6237,-347.9068 181.1898,-335.6389 213,-327 224.4099,-323.9013 236.6516,-321.0043 248.5373,-318.411"/>
+<polygon fill="#000000" stroke="#000000" points="249.3609,-321.8142 258.4115,-316.3063 247.9015,-314.968 249.3609,-321.8142"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~writeppm2matrix -->
+<g id="call~~graph~~CallGraph_edge15" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~writeppm2matrix</title>
+<path fill="none" stroke="#000000" d="M161.7134,-375.8181C188.9676,-378.3562 219.7507,-381.2229 246.472,-383.7114"/>
+<polygon fill="#000000" stroke="#000000" points="246.217,-387.2027 256.4985,-384.6451 246.8662,-380.2328 246.217,-387.2027"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~deofpcs -->
+<g id="call~~graph~~CallGraph_edge8" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~deofpcs</title>
+<path fill="none" stroke="#000000" d="M161.7134,-362.1819C198.34,-358.771 241.34,-354.7666 272.2897,-351.8843"/>
+<polygon fill="#000000" stroke="#000000" points="272.6648,-355.3646 282.2971,-350.9524 272.0157,-348.3948 272.6648,-355.3646"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~solve_eigenvalues -->
+<g id="call~~graph~~CallGraph_edge6" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~solve_eigenvalues</title>
+<path fill="none" stroke="#000000" d="M93.6829,-356.8886C107.7742,-325.5234 150,-241.2937 213,-201 221.4868,-195.572 231.1204,-191.5154 240.9869,-188.4897"/>
+<polygon fill="#000000" stroke="#000000" points="242.166,-191.7963 250.8973,-185.795 240.3293,-185.0415 242.166,-191.7963"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~output_matrix -->
+<g id="call~~graph~~CallGraph_edge11" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~output_matrix</title>
+<path fill="none" stroke="#000000" d="M120.6767,-381.0455C145.6237,-390.0932 181.1898,-402.3611 213,-411 225.8088,-414.4786 239.6659,-417.703 252.8908,-420.5289"/>
+<polygon fill="#000000" stroke="#000000" points="252.3485,-423.9911 262.8529,-422.6099 253.7798,-417.139 252.3485,-423.9911"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~input_matrix -->
+<g id="call~~graph~~CallGraph_edge14" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~input_matrix</title>
+<path fill="none" stroke="#000000" d="M102.3728,-356.9293C124.3078,-338.5031 169.0373,-303.5494 213,-285 227.4158,-278.9175 243.755,-274.5407 259.0259,-271.414"/>
+<polygon fill="#000000" stroke="#000000" points="259.7091,-274.8468 268.8758,-269.5343 258.397,-267.9709 259.7091,-274.8468"/>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;proc~deofcovcor -->
+<g id="call~~graph~~CallGraph_edge10" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;proc~deofcovcor</title>
+<path fill="none" stroke="#000000" d="M96.8104,-356.6199C114.7435,-330.9579 159.7818,-271.9485 213,-243 227.1964,-235.2778 243.9332,-230.3903 259.6559,-227.2987"/>
+<polygon fill="#000000" stroke="#000000" points="260.5616,-230.6932 269.8046,-225.5146 259.3496,-223.7989 260.5616,-230.6932"/>
+</g>
+<!-- ltrim -->
+<g id="call~~graph~~CallGraph_node19" class="node">
+<title>ltrim</title>
+<polygon fill="#777777" stroke="#777777" points="341,-486 287,-486 287,-462 341,-462 341,-486"/>
+<text text-anchor="middle" x="314" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ltrim</text>
+</g>
+<!-- program~extract_pod_sirovich&#45;&gt;ltrim -->
+<g id="call~~graph~~CallGraph_edge7" class="edge">
+<title>program~extract_pod_sirovich&#45;&gt;ltrim</title>
+<path fill="none" stroke="#000000" d="M102.3728,-381.0707C124.3078,-399.4969 169.0373,-434.4506 213,-453 233.2814,-461.5574 257.3698,-466.7385 276.9343,-469.8127"/>
+<polygon fill="#000000" stroke="#000000" points="276.5971,-473.3003 286.9962,-471.2734 277.6028,-466.373 276.5971,-473.3003"/>
+</g>
+<!-- program~project_pod_sirovich -->
+<g id="call~~graph~~CallGraph_node18" class="node">
+<title>program~project_pod_sirovich</title>
+<g id="a_call~~graph~~CallGraph_node18"><a xlink:href=".././program/project_pod_sirovich.html" xlink:title="PROJECT_POD_SIROVICH">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="161.5,-528 15.5,-528 15.5,-504 161.5,-504 161.5,-528"/>
+<text text-anchor="middle" x="88.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">PROJECT_POD_SIROVICH</text>
+</a>
+</g>
+</g>
+<!-- program~project_pod_sirovich&#45;&gt;proc~boundary_conditions_ghost -->
+<g id="call~~graph~~CallGraph_edge16" class="edge">
+<title>program~project_pod_sirovich&#45;&gt;proc~boundary_conditions_ghost</title>
+<path fill="none" stroke="#000000" d="M153.1192,-528.0355C180.0107,-533.0441 211.399,-538.8903 239.275,-544.0823"/>
+<polygon fill="#000000" stroke="#000000" points="238.8995,-547.5724 249.3713,-545.9627 240.1813,-540.6908 238.8995,-547.5724"/>
+</g>
+<!-- program~project_pod_sirovich&#45;&gt;proc~lorenz_state -->
+<g id="call~~graph~~CallGraph_edge18" class="edge">
+<title>program~project_pod_sirovich&#45;&gt;proc~lorenz_state</title>
+<path fill="none" stroke="#000000" d="M161.7134,-516C192.2947,-516 227.3191,-516 256.0627,-516"/>
+<polygon fill="#000000" stroke="#000000" points="256.3485,-519.5001 266.3485,-516 256.3484,-512.5001 256.3485,-519.5001"/>
+</g>
+<!-- program~project_pod_sirovich&#45;&gt;ltrim -->
+<g id="call~~graph~~CallGraph_edge17" class="edge">
+<title>program~project_pod_sirovich&#45;&gt;ltrim</title>
+<path fill="none" stroke="#000000" d="M153.1192,-503.9645C193.2205,-496.4955 243.3218,-487.164 276.8633,-480.9168"/>
+<polygon fill="#000000" stroke="#000000" points="277.5217,-484.3545 286.7117,-479.0825 276.2399,-477.4728 277.5217,-484.3545"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="560pt" height="32pt"
+ viewBox="0.00 0.00 559.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-28 555.5,-28 555.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-24 0,-24 0,0 64,0 64,-24"/>
+<text text-anchor="middle" x="32" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-24 82,-24 82,0 136,0 136,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="209.5,-24 154.5,-24 154.5,0 209.5,0 209.5,-24"/>
+<text text-anchor="middle" x="182" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="364,-24 228,-24 228,0 364,0 364,-24"/>
+<text text-anchor="middle" x="296" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="436,-24 382,-24 382,0 436,0 436,-24"/>
+<text text-anchor="middle" x="409" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="551.5,-24 454.5,-24 454.5,0 551.5,0 551.5,-24"/>
+<text text-anchor="middle" x="503" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+        </div>
+      </div>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Andres Castillo</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,64 @@
+SRC=./src
+BIN=./bin
+OBJ=./obj
+TST=./tst
+
+LINK=-c
+################################################################################
+#
+# -D_STRESSFREE - Required to used stress-free conditions on the top boundary
+# -D_REVERSAL   - Used a different input file which allows more flexibility
+#									This is used for the conditional POD, see input2.dat and
+#									"make retry" instead of input.dat and "make try"
+#
+############################# TO USE IF GFORTRAN ###############################
+#CF=gfortran
+#FFLAGS=-I $(OBJ) -J $(OBJ) -cpp -O2 -llapack -openmp -ffree-line-length-none
+#LDFLAGS=-llapack -openmp
+
+############################# TO USE IF IFORT ###############################
+CF=ifort
+FFLAGS=-I $(OBJ) -module $(OBJ) -fpe0 -cpp -O2 -openmp -parallel -llapack -g3 -D_REVERSAL
+LDFLAGS=-llapack -openmp
+
+FILES=$(OBJ)/input.o $(OBJ)/output.o $(OBJ)/pierce.o
+
+EXECUTABLE=extract_pod_sirovich
+EXECUTABLE2=project_pod_sirovich
+
+build: $(MOD) $(OBJ)/sirovich.o
+	$(CF) $(FILES) $(OBJ)/sirovich.o $(LDFLAGS) $(TECIO_GNU_64) -o $(BIN)/$(EXECUTABLE)
+
+conditional: $(MOD) $(OBJ)/sirovich.o
+	$(CF) $(FILES) $(OBJ)/sirovich.o $(LDFLAGS) $(TECIO_GNU_64) -o $(BIN)/$(EXECUTABLE)
+
+projection: $(MOD) $(OBJ)/projection.o
+	$(CF) $(FILES) $(OBJ)/projection.o $(LDFLAGS) $(TECIO_GNU_64) -o $(BIN)/$(EXECUTABLE2)
+
+$(OBJ)/sirovich.o:	$(FILES)
+	$(CF) $(FFLAGS) $(LINK) $(SRC)/sirovich.f90 $(TECIO_GNU_INCLUDE) -o $(OBJ)/sirovich.o
+
+$(OBJ)/projection.o:	$(FILES)
+	$(CF) $(FFLAGS) $(LINK) $(SRC)/projection.f90 $(TECIO_GNU_INCLUDE) -o $(OBJ)/projection.o
+
+$(OBJ)/pierce.o:
+	$(CF) $(FFLAGS) $(LINK) $(SRC)/pierce.f90 -o $(OBJ)/pierce.o
+
+$(OBJ)/input.o:
+	$(CF) $(FFLAGS) $(LINK) $(SRC)/input.f90 -o $(OBJ)/input.o
+
+$(OBJ)/output.o:
+	$(CF) $(FFLAGS) $(LINK) $(SRC)/output.f90 -o $(OBJ)/output.o
+
+try: build
+	make && cd $(TST) && tar -xvf test_fields.tar.gz && sed 's|CURRENT_DIR|'`pwd`'|' input.dat | .$(BIN)/$(EXECUTABLE) && rm field*.bin
+
+retry: conditional
+	make && cd $(TST) && tar -xvf test_fields.tar.gz && sed 's|CURRENT_DIR|'`pwd`'|' input2.dat | .$(BIN)/$(EXECUTABLE) && rm field*.bin
+
+proj: build
+	make projection && cd $(TST) && tar -xvf test_fields.tar.gz && sed 's|CURRENT_DIR|'`pwd`'|' input.dat | .$(BIN)/$(EXECUTABLE2) && rm field*.bin && gnuplot plot.gnuplot && rm proj-*comparison-F.asc
+
+
+clean:
+	rm -f $(BIN)/$(EXECUTABLE) $(FILES) $(TST)/*.bin $(TST)/*.asc
