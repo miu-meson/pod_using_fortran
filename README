@@ -1,6 +1,6 @@
 This folder contains Fortran Code to extract POD modes.
 
-The code is based on an existing piece of code "Empirical Orthogonal Function (EOF) software/Principal Component Analysis (PCA) software" by David W. Pierce, Climate Research Division, Scripps Institution of Oceanography. See http://meteora.ucsd.edu/~pierce/eof/eofs.html
+The code is based on an existing piece of code "Empirical Orthogonal Function (EOF) software/Principal Component Analysis (PCA) software" by David W. Pierce, Climate Research Division, Scripps Institution of Oceanography. See https://cirrus.ucsd.edu/~pierce/eof/eofs.html
 
 A copy of which is available inside original_version_pierce
 
